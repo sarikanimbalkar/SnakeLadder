@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 public class SnakeLadder {
-    static final int WINNING_POSITION = 0;
+    static final int WINNING_POSITION = 100;
     static int player1Position = 0;
 
     static int rollDie() {
@@ -21,9 +21,9 @@ public class SnakeLadder {
             switch (option) {
                 case 0:
                     player1Position -= dice;
+                    System.out.println("SNAKE");
                     if (player1Position < 0)
                         player1Position = 0;
-                    System.out.println("SNAKE");
                     break;
                 case 1:
                     player1Position += dice;
