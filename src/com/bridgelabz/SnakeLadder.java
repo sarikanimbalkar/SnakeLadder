@@ -1,34 +1,40 @@
 package com.bridgelabz;
+
 public class SnakeLadder {
-    static int player1Position=0;
-    static int rollDie()
-    {
-        int dice=((int)Math.random()*10)%6+1;
+    static final int WINNING_POSITION = 0;
+    static int player1Position = 0;
+
+    static int rollDie() {
+        int dice = ((int) Math.random() * 10) % 6 + 1;
         return dice;
     }
-    static int getOption()
-    {
-        int opetion=((int)Math.random()*10)%3;
-        return opetion;
+    static int getOption() {
+        int option = ((int) Math.random() * 10) % 3;
+        return option;
     }
     public static void main(String[] args) {
-        int dice=rollDie();
+        int dice = rollDie();
         System.out.println(dice);
-        int option=getOption();
+        int option = getOption();
         System.out.println(option);
-        switch (option)
-        {
-            case 0:
-                player1Position-=dice;
-                System.out.println("SNAKE");
-                break;
-            case 1:
-                player1Position+=dice;
-                System.out.println("LADDER");
-                break;
-            case 2:
-                System.out.println("No Play");
-                break;
+        while (player1Position != WINNING_POSITION) {
+            switch (option) {
+                case 0:
+                    player1Position -= dice;
+                    if (player1Position < 0)
+                        player1Position = 0;
+                    System.out.println("SNAKE");
+                    break;
+                case 1:
+                    player1Position += dice;
+                    System.out.println("LADDER");
+                    break;
+                case 2:
+                    System.out.println("No Play");
+                    break;
+            }
+            dice++;
         }
+        //dice++;
     }
 }
